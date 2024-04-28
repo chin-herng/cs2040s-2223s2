@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class SortingTester {
@@ -30,6 +29,10 @@ public class SortingTester {
     }
 
     public static boolean isStable(ISort sorter, int size) {
+        if (size == 0) {
+            return true;
+        }
+
         // we use an array of the form [1, 1, ..., 1, 0]
         // an array of the form [0, 0, ..., 0] (all zeros) will not work because
         // selection sort will not do anything to an already-sorted array

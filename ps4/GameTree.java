@@ -96,37 +96,6 @@ public class GameTree {
         }
     }
 
-    // returns 'X' if there is a line of three-X’s, 'O' if there is a line of three-O’s,
-    // and ' ' if there are no lines
-    private char checkLines(String state) {
-        // horizontal rows
-        for (int i = 0; i < 9; i += 3) {
-            char c = state.charAt(i);
-            if (state.charAt(i + 1) == c && state.charAt(i + 2) == c) {
-                return c;
-            }
-        }
-
-        // vertical rows
-        for (int i = 0; i < 3; i++) {
-            char c = state.charAt(i);
-            if (state.charAt(i + 3) == c && state.charAt(i + 6) == c) {
-                return c;
-            }
-        }
-
-        // diagonal rows
-        char c = state.charAt(4);
-        if (state.charAt(0) == c && state.charAt(8) == c) {
-            return c;
-        }
-        if (state.charAt(2) == c && state.charAt(6) == c) {
-            return c;
-        }
-
-        return ' ';
-    }
-
     // Helper function: reads a game tree from the specified reader
     private TreeNode readTree(java.io.BufferedReader reader) throws java.io.IOException {
         String s = reader.readLine();
@@ -138,24 +107,12 @@ public class GameTree {
         node.children = new TreeNode[node.numChildren];
         node.leaf = (s.charAt(1) == '1');
         node.value = Integer.MIN_VALUE;
-        node.name = s.substring(3);
         if (node.leaf) {
             char v = s.charAt(2);
             node.value = Character.getNumericValue(v);
             node.value--;
-            char l = checkLines(node.name);
-            // method 1
-//            if (l == ' ') {
-//                node.value = (node.value >= -2 ? 1 : -1);
-//            }
-
-            // method 2
-            if (l == 'X') {
-                node.value = Integer.MAX_VALUE;
-            } else if (l == 'O') {
-                node.value = Integer.MIN_VALUE;
-            }
         }
+        node.name = s.substring(3);
 
         for (int i = 0; i < node.numChildren; i++) {
             node.children[i] = readTree(reader);
@@ -207,7 +164,7 @@ public class GameTree {
     // Simple main for testing purposes
     public static void main(String[] args) {
         GameTree tree = new GameTree();
-        tree.readTree("variants/notie.txt");
+        tree.readTree("games/tictac_9_empty.txt");
         System.out.println(tree.findValue());
     }
 

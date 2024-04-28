@@ -10,11 +10,11 @@ import java.util.Random;
  * Any such NULL characters in the original text should be ignored.
  */
 public class MarkovModel {
-	private int order;
+	private final int order;
 	private final int COUNT_ASCII = 256;
 	// Since the NULL character does not count as a character, the frequency of each kgram is
 	// conveniently stored at index 0 of freq.get(kgram).
-	private HashMap<String, int[]> freq;
+	private final HashMap<String, int[]> freq;
 
 	// Use this to generate random numbers as needed
 	private Random generator = new Random();

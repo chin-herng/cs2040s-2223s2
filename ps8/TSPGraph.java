@@ -128,49 +128,5 @@ public class TSPGraph implements IApproximateTSP {
         TSPGraph graph = new TSPGraph();
 
         graph.MST(map);
-//         graph.TSP(map);
-//         System.out.println(graph.isValidTour(map));
-        // System.out.println(graph.tourDistance(map));
     }
-
-//    public static void main(String[] args) {
-//        TSPMap map = new TSPMap(args.length > 0 ? args[0] : "./tenpoints.txt");
-////       map.setLink(0, 1);
-////       map.setLink(1, 2);
-////       map.setLink(2, 3);
-////       map.setLink(3, 4);
-////       map.setLink(4, 0);
-////       map.setLink(5, 6);
-////       map.setLink(6, 7);
-////       map.setLink(7, 8);
-////       map.setLink(8, 9);
-////       map.setLink(9, 5);
-//
-//       map.setLink(0, 1);
-//       map.setLink(1, 2);
-//       map.setLink(2, 3);
-//       map.setLink(3, 4);
-//       map.setLink(4, 5);
-//       map.setLink(5, 6);
-//       map.setLink(6, 7);
-//       map.setLink(7, 8);
-//       map.setLink(8, 9);
-//       map.eraseLink(9);
-//
-////        map.setLink(0, 1);
-////        map.setLink(1, 2);
-////        map.setLink(2, 3);
-////        map.setLink(3, 4);
-////        map.setLink(4, 5);
-////        map.setLink(5, 6);
-////        map.setLink(6, 7);
-////        map.setLink(7, 8);
-////        map.setLink(8, 9);
-////        map.setLink(9, 1);
-//        TSPGraph graph = new TSPGraph();
-//        // graph.MST(map);
-//        // graph.MST(map);
-//        System.out.println(graph.isValidTour(map));
-//        // System.out.println(graph.tourDistance(map));
-//    }
 }

@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /**
  * class ModifiedShiftRegister
  * @author Chong Chin Herng

@@ -20,18 +20,18 @@ public class LoadBalancing {
         }
         int processorCount = 1;
         int currentProcessorLoad = 0;
-        for (int i = 0; i < jobSizes.length; i++) {
-            if (jobSizes[i] > queryLoad) {
+        for (int jobSize : jobSizes) {
+            if (jobSize > queryLoad) {
                 // The job size doesn't fit into even a processor without any load
                 return false;
             }
-            if (currentProcessorLoad + jobSizes[i] <= queryLoad) {
+            if (currentProcessorLoad + jobSize <= queryLoad) {
                 // The processor can still take another job
-                currentProcessorLoad += jobSizes[i];
+                currentProcessorLoad += jobSize;
             } else {
                 // A new processor is needed
                 processorCount++;
-                currentProcessorLoad = jobSizes[i];
+                currentProcessorLoad = jobSize;
                 if (processorCount > p) {
                     // We have used too many processors
                     return false;
@@ -55,8 +55,8 @@ public class LoadBalancing {
         }
         int begin = 0;
         int end = 0;
-        for (int i = 0; i < jobSizes.length; i++) {
-            end += jobSizes[i];
+        for (int jobSize : jobSizes) {
+            end += jobSize;
         }
         // end could've been Integer.MAX_VALUE and that would produce an O(n) solution.
         // However, there could be cases where sum of jobSizes > Integer.MAX_VALUE.

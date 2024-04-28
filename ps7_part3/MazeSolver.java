@@ -106,9 +106,11 @@ public class MazeSolver implements IMazeSolver {
 			Node w = this.ts.pollFirst(); // Why is it called poll?
 			if (w == this.graph[endRow][endCol]) {
 				// Unlike 7.1 and 7.2, we can terminate early as we only care about the destination.
-				return w.dist;
+                assert w != null;
+                return w.dist;
 			}
-			w.relax();
+            assert w != null;
+            w.relax();
 		}
 
 		// No path is found.
@@ -174,16 +176,17 @@ public class MazeSolver implements IMazeSolver {
 
 		// We first ignore the special room.
 		// This captures the case where the shortest path does not go through the special room.
-		Integer ignoreSpecial = this.dijkstra(startRow, startCol, endRow, endCol, 0);
-		if (ignoreSpecial != null && this.canReach(startRow, startCol, sRow, sCol)) {
-			// If we can reach the special room, the path we take to reach it does not matter.
-			// We look at the shortest path from the special room to the destination.
-			Integer specialToEnd = this.dijkstra(sRow, sCol, endRow, endCol, -1);
-			return specialToEnd == null ? ignoreSpecial : Math.min(ignoreSpecial, specialToEnd);
+		Integer startToEnd = this.dijkstra(startRow, startCol, endRow, endCol, 0);
+		if (startToEnd == null) {
+			return null;
 		}
-		// If we can never reach the destination, the answer is null = ignoreSpecial.
-		// If we cannot reach the special room, the answer is still ignoreSpecial.
-		return ignoreSpecial;
+
+		Integer specialToEnd = this.dijkstra(sRow, sCol, endRow, endCol, -1);
+		if (specialToEnd == null) {
+			return startToEnd;
+		}
+
+		return Math.min(startToEnd, specialToEnd);
 	}
 
 	public static void main(String[] args) {

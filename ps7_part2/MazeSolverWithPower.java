@@ -159,18 +159,6 @@ public class MazeSolverWithPower implements IMazeSolverWithPower {
 			solver.initialize(maze);
 			solver.pathSearch(0, 0, 0, 4, 2);
 
-//			for (int i = 0; i < maze.getRows(); i++) {
-//				for (int j = 0; j < maze.getColumns(); j++) {
-//					System.out.println(solver.pathSearch(0, 0, i, j, 3));
-//					ImprovedMazePrinter.printMaze(maze, 0, 0);
-//					for (int k = 0; k < maze.getRows(); k++) {
-//						for (int l = 0; l < maze.getColumns(); l++) {
-//							System.out.print((maze.getRoom(k, l).onPath ? 1 : 0) + " ");
-//						}
-//						System.out.println();
-//					}
-//				}
-//			}
 			for (int k = 0; k <= 10; ++k) {
 				System.out.println("Steps " + k + " Rooms: " + solver.numReachable(k));
 			}

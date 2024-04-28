@@ -16,9 +16,4 @@ public class Solution {
 
         return res;
     }
-
-//    public static void main(String[] args) {
-//        System.out.println(Solution.solve(new int[] { 1, 1, 3, 10 }, 4));
-//        System.out.println(Solution.solve(new int[] { 4, 5, 4, 5, 4, 5, 4 }, 9));
-//    }
 }

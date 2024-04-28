@@ -38,9 +38,4 @@ public class Solution {
         // n = 0.
         return 0;
     }
-
-//    public static void main(String[] args) {
-//        System.out.println(Solution.solve(new int[] { 1, 2, 20, 4, 3, 2, 7, 9 }));
-//        System.out.println(Solution.solve(new int[] { 4, 5, 4, 5, 4, 5 }));
-//    }
 }

@@ -89,11 +89,11 @@ public class ShiftRegister implements ILFShiftRegister {
 
     @Override
     public String toString() {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         for (int i = size - 1; i > -1; i--) {
-            res += (char) ('0' + bits[i]);
+            res.append((char) ('0' + bits[i]));
         }
-        return res;
+        return res.toString();
     }
 
     /**

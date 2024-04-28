@@ -16,8 +16,8 @@ class InversionCounter {
         }
         long leftCount = countSwaps(l);
         long rightCount = countSwaps(r);
-        for (int i = 0; i <= mid; i++) {
-            arr[i] = l[i];
+        if (mid + 1 >= 0) {
+            System.arraycopy(l, 0, arr, 0, mid + 1);
         }
         for (int i = mid + 1; i < n; i++) {
             arr[i] = r[i - mid - 1];
@@ -38,8 +38,8 @@ class InversionCounter {
         int[] l = Arrays.copyOf(arr, right1 - left1 + 2);
         int[] r = new int[right2 - left2 + 2];
 
-        for (int i = left2; i <= right2; i++) {
-            r[i - left2] = arr[i];
+        if (right2 + 1 - left2 >= 0) {
+            System.arraycopy(arr, left2, r, 0, right2 + 1 - left2);
         }
         l[right1 - left1 + 1] = Integer.MAX_VALUE;
         r[right2 - left2 + 1] = Integer.MAX_VALUE;

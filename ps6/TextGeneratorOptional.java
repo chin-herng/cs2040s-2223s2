@@ -3,7 +3,7 @@ import java.io.FileInputStream;
 /**
  * This class is used to generated text using a Markov Model
  */
-public class TextGenerator {
+public class TextGeneratorOptional {
 
     // For testing, we will choose different seeds
     private static long seed;
@@ -20,7 +20,7 @@ public class TextGenerator {
      * @param fileName the name of the file to read
      * @param model the Markov Model to build
      */
-    public static void buildModel(int order, String fileName, MarkovModel model) {
+    public static void buildModel(int order, String fileName, MarkovModelOptional model) {
         // Get ready to parse the file.
         // StringBuffer is used instead of String as appending character to String is slow
         StringBuilder text = new StringBuilder();
@@ -60,7 +60,7 @@ public class TextGenerator {
      * @param seedText the initial "kgram" used to generate text
      * @param length the length of the text to generate
      */
-    public static void generateText(MarkovModel model, String seedText, int length) {
+    public static void generateText(MarkovModelOptional model, String seedText, int length) {
         // Use the first order words of the text as the starting string
         StringBuffer kgram = new StringBuffer();
         kgram.append(seedText);
@@ -68,12 +68,12 @@ public class TextGenerator {
         // Generate length words
         String currKgram = seedText;
         String strToAppend;
-        int outLength = seedText.toString().split("\\s+").length;
+        int outLength = seedText.split("\\s+").length;
         while (outLength < length) {
             // Get the next string from "kgram" sequence.
             strToAppend = model.nextString(currKgram);
 
-            if (!strToAppend.equals(MarkovModel.NOSTRING)) {
+            if (!strToAppend.equals(MarkovModelOptional.NOSTRING)) {
                 kgram.append(strToAppend);
 
                 // Update current kgram
@@ -116,11 +116,11 @@ public class TextGenerator {
 
         // Create the model
 //        setSeed(4927);
-        MarkovModel markovModel = new MarkovModel(order, seed);
-        buildModel(order, fileName, markovModel);
+        MarkovModelOptional markovModelOptional = new MarkovModelOptional(order, seed);
+        buildModel(order, fileName, markovModelOptional);
         String seedText = "hi. you're ";
 
         // Generate text
-        generateText(markovModel, seedText, length);
+        generateText(markovModelOptional, seedText, length);
     }
 }

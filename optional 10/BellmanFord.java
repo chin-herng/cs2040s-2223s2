@@ -74,10 +74,6 @@ public class BellmanFord {
                     this.dist[e[1]] = NEGINF;
                 }
             }
-//            for (int x : dist) {
-//                System.out.print(x + " ");
-//            }
-//            System.out.println();
             if (noChange) {
                 // "Converges".
                 return;
@@ -92,26 +88,4 @@ public class BellmanFord {
 
         return this.dist[node];
     }
-
-//    public static void main(String[] args) {
-//        ArrayList<ArrayList<IntPair>> adjList = new ArrayList<>();
-//        for (int i = 0; i < 4; i++) {
-//            adjList.add(new ArrayList<>());
-//        }
-//        adjList.get(0).add(new IntPair(1, 3));
-//        adjList.get(0).add(new IntPair(2, 5));
-//        adjList.get(1).add(new IntPair(3, -4));
-//        adjList.get(2).add(new IntPair(1, -1));
-//        adjList.get(3).add(new IntPair(2, 2));
-//        BellmanFord bf = new BellmanFord(adjList);
-//        bf.computeShortestPaths(0);
-//        System.out.println(bf.getDistance(2));
-////        for (int source = 0; source < 4; source++) {
-////            bf.computeShortestPaths(source);
-////            for (int i = 0; i < 4; i++) {
-////                System.out.print(bf.getDistance(i) + " ");
-////            }
-////            System.out.println();
-////        }
-//    }
 }

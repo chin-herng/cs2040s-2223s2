@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Trie {
 
@@ -7,7 +8,7 @@ public class Trie {
     final int NUMBERS_COUNT = 10;
     final int ALPHABETS_COUNT = 26;
     final int CHILDREN_COUNT = 62;
-    private TrieNode root;
+    private final TrieNode root;
 
     private class TrieNode {
         int[] presentChars = new int[62]; // not sure about the use of this
@@ -155,7 +156,7 @@ public class Trie {
     // PLEASE DO NOT CHANGE the implementation for this function as it will be used
     // to run the test cases.
     String[] prefixSearch(String s, int limit) {
-        ArrayList<String> results = new ArrayList<String>();
+        ArrayList<String> results = new ArrayList<>();
         prefixSearch(s, results, limit);
         return results.toArray(new String[0]);
     }
@@ -177,8 +178,11 @@ public class Trie {
 
         String[] result1 = t.prefixSearch("pe", 10);
         String[] result2 = t.prefixSearch("pe.", 10);
+
         // result1 should be:
         // ["peck", "pepi", "peppers", "pepppito", "peter"]
+        System.out.println(Arrays.toString(result1));
         // result2 should contain the same elements with result1 but may be ordered arbitrarily
+        System.out.println(Arrays.toString(result2));
     }
 }

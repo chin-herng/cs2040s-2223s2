@@ -1,20 +1,19 @@
+import java.util.Arrays;
+
 class Sorter {
     public static boolean isGreaterThan(String s1, String s2) {
-        if (s1.length() == 0) {
+        if (s1.isEmpty()) {
             // an empty string is lexicographically smaller than any nonempty string
             // and is lexicographically equal to another empty string
             return false;
         }
-        if (s2.length() == 0) {
+        if (s2.isEmpty()) {
             // any nonempty string is lexicographically greater than an empty string
             return false;
         }
         if (s1.length() == 1 || s2.length() == 1) {
             // compare the first characters
-            if (s1.charAt(0) > s2.charAt(0)) {
-                return true;
-            }
-            return false;
+            return s1.charAt(0) > s2.charAt(0);
         }
 
         String actual1 = "" + s1.charAt(0) + s1.charAt(1);
@@ -23,18 +22,55 @@ class Sorter {
         return actual1.compareTo(actual2) > 0;
     }
 
-    public static void sortStrings(String[] arr) {
-        // we need to implement a stable sorting algorithm that sorts in place
-        // that leaves us with insertion sort and bubble sort
-        // practically insertion sort is almost always preferred
-        int n = arr.length;
-
-        for (int i = 1; i < n; i++) {
-            for (int j = i; j > 0 && isGreaterThan(arr[j - 1], arr[j]); j--) {
-                String temp = arr[j - 1];
-                arr[j - 1] = arr[j];
-                arr[j] = temp;
-            }
+    private static void mergeSort(String[] arr, int l, int r) {
+        if (l == r) {
+            return;
         }
+
+        int m = l + (r - l) / 2;
+        mergeSort(arr, l, m);
+        mergeSort(arr, m + 1, r);
+
+        String[] res = new String[r - l + 1];
+        int i = l;
+        int j = m + 1;
+        int k = 0;
+
+        while (i <= m && j <= r) {
+            if (isGreaterThan(arr[i], arr[j])) {
+                res[k] = arr[j];
+                j++;
+            } else {
+                res[k] = arr[i];
+                i++;
+            }
+            k++;
+        }
+
+        while (i <= m) {
+            res[k] = arr[i];
+            i++;
+            k++;
+        }
+
+        while (j <= r) {
+            res[k] = arr[j];
+            j++;
+            k++;
+        }
+
+        System.arraycopy(res, 0, arr, l, r - l + 1);
+    }
+
+    public static void sortStrings(String[] arr) {
+        // merge sort
+        int n = arr.length;
+        mergeSort(arr, 0, n - 1);
+    }
+
+    public static void main(String[] args) {
+        String[] arr = {"a", "b", "c", "d", "e", "f"};
+        sortStrings(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }

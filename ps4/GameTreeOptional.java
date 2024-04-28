@@ -4,7 +4,7 @@
  * This class contains the basic code for implementing a Game Tree. It includes functionality to load a game tree.
  */
 
-public class GameTree {
+public class GameTreeOptional {
 
     // Standard enumerations for tic-tac-toe variations
     public enum Player {ONE, TWO}
@@ -206,7 +206,7 @@ public class GameTree {
 
     // Simple main for testing purposes
     public static void main(String[] args) {
-        GameTree tree = new GameTree();
+        GameTreeOptional tree = new GameTreeOptional();
         tree.readTree("variants/notie.txt");
         System.out.println(tree.findValue());
     }

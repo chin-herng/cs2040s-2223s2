@@ -6,13 +6,13 @@ import java.util.Random;
  * This is the main class for a Word-based Markov Model.
  * Assume that the text will contain ASCII characters in the range [1,255].
  */
-public class MarkovModel {
+public class MarkovModelOptional {
     // Here, a kgram refers to a k-word string, where k is the order
-    private int order;
+    private final int order;
     // Frequency of each kgram
-    private HashMap<String, Integer> freq;
+    private final HashMap<String, Integer> freq;
     // Frequency of each word following each kgram
-    private HashMap<String, HashMap<String, Integer>> afterFreq;
+    private final HashMap<String, HashMap<String, Integer>> afterFreq;
 
     // Generate random numbers
     private Random generator = new Random();
@@ -26,7 +26,7 @@ public class MarkovModel {
      * @param order the number of words to identify for the Markov Model sequence
      * @param seed the seed used by the random number generator
      */
-    public MarkovModel(int order, long seed) {
+    public MarkovModelOptional(int order, long seed) {
         this.order = order;
         this.freq = new HashMap<>();
         this.afterFreq = new HashMap<>();
