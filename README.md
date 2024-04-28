@@ -4,7 +4,7 @@ Archive of solutions for CS2040S AY22/23 Semester 2 problem sets, optional pract
 - Problem statements and some template codes are also included for completeness.
 - Short answer/Open-ended questions are not available. My answers for these questions are typically long-winded and overcomplicated. There is not much value reading them.
 - The solutions are supposed to pass all public and private test cases when run on Coursemology.
-- The solutions will be refined over time (optimising towards pedagogical value). Any feedback/issues regarding the solutions are welcome.
+- The solutions will be refined over time (optimising for pedagogical value). Any feedback/issues regarding the solutions are welcome.
 
 ## Credits
 
