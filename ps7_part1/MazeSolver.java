@@ -142,8 +142,6 @@ public class MazeSolver implements IMazeSolver {
 					}
 				}
 			}
-//			System.out.println(solver.pathSearch(0, 0, 2, 3));
-//			System.out.println(solver.pathSearch(0, 0, 0, 4));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
