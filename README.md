@@ -1,4 +1,4 @@
-Archive of solutions for CS2040S AY22/23 Semester 2 problem sets, optional practices and contests. Will be made public only from Coursemology XP freeze to end of the summer break, intended to be used by students to reflect on their own solutions, mainly from the aspect of implementation.
+Archive of solutions for CS2040S AY22/23 Semester 2 problem sets, optional practices and contests. Will be made public only from Semester 2 Coursemology XP freeze to end of the subsequent winter break, intended to be used by students to reflect on their own solutions, mainly from the aspect of implementation.
 
 - These are my personal solutions (mostly what I have submitted on Coursemology). These are not the officially suggested solutions.
 - Problem statements and some template codes are also included for completeness.
